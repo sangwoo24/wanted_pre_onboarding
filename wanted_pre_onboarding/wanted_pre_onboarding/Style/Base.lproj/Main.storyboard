@@ -17,27 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLZ-9A-PT9">
-                                <rect key="frame" x="30" y="74" width="154" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7A-qS-PYX">
-                                <rect key="frame" x="30" y="118" width="354" height="120"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="qmB-1S-nUK"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e37-fz-UdD">
-                                <rect key="frame" x="30" y="278" width="136" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e37-fz-UdD">
+                                <rect key="frame" x="30" y="84" width="133.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YSk-80-sWc">
-                                <rect key="frame" x="30" y="322" width="354" height="540"/>
+                                <rect key="frame" x="30" y="150" width="358" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Zv-JI-EiM">
                                     <size key="itemSize" width="128" height="128"/>
@@ -64,27 +51,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YSk-80-sWc" firstAttribute="leading" secondItem="e37-fz-UdD" secondAttribute="leading" id="4at-9j-0ob"/>
-                            <constraint firstItem="YSk-80-sWc" firstAttribute="trailing" secondItem="H7A-qS-PYX" secondAttribute="trailing" id="L1z-rE-kKI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H7A-qS-PYX" secondAttribute="trailing" constant="30" id="QVC-fG-Py0"/>
-                            <constraint firstItem="CLZ-9A-PT9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="U99-aj-pN7"/>
-                            <constraint firstItem="YSk-80-sWc" firstAttribute="top" secondItem="e37-fz-UdD" secondAttribute="bottom" constant="20" id="Vh7-OD-NJO"/>
-                            <constraint firstItem="H7A-qS-PYX" firstAttribute="top" secondItem="CLZ-9A-PT9" secondAttribute="bottom" constant="20" id="W45-xg-8U8"/>
-                            <constraint firstItem="CLZ-9A-PT9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="be1-nT-igl"/>
-                            <constraint firstItem="e37-fz-UdD" firstAttribute="leading" secondItem="H7A-qS-PYX" secondAttribute="leading" id="cFO-Wc-AFV"/>
-                            <constraint firstItem="e37-fz-UdD" firstAttribute="top" secondItem="H7A-qS-PYX" secondAttribute="bottom" constant="40" id="f4J-Sg-XYC"/>
+                            <constraint firstItem="YSk-80-sWc" firstAttribute="leading" secondItem="e37-fz-UdD" secondAttribute="leading" id="32h-c3-dgO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSk-80-sWc" secondAttribute="trailing" constant="26" id="4S8-mL-CiT"/>
+                            <constraint firstItem="e37-fz-UdD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Mbx-Da-o2m"/>
+                            <constraint firstItem="e37-fz-UdD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Tam-yX-tuy"/>
+                            <constraint firstItem="YSk-80-sWc" firstAttribute="top" secondItem="e37-fz-UdD" secondAttribute="bottom" constant="30" id="Vh7-OD-NJO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YSk-80-sWc" secondAttribute="bottom" id="fOy-oQ-zoN"/>
-                            <constraint firstItem="H7A-qS-PYX" firstAttribute="leading" secondItem="CLZ-9A-PT9" secondAttribute="leading" id="uix-I5-vlt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="WeatherListCollectionView" destination="YSk-80-sWc" id="NXe-Y6-5Ng"/>
-                        <outlet property="currentLocationSectionView" destination="H7A-qS-PYX" id="fWH-N4-QN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5.7971014492753632" y="128.57142857142856"/>
+            <point key="canvasLocation" x="-700" y="88"/>
         </scene>
     </scenes>
     <resources>
