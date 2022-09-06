@@ -21,8 +21,10 @@ extension UIImageView {
         DispatchQueue.global(qos: .background).async {
             if let url = URL(string: url) {
                 URLSession.shared.dataTask(with: url) { data, response, error in
-                    guard error != nil else {
-                        self.image = UIImage()
+                    guard error == nil else {
+                        DispatchQueue.main.async {
+                            self.image = UIImage()
+                        }
                         return
                     }
                     
