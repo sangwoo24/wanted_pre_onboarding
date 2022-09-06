@@ -11,6 +11,7 @@ struct WeatherResponse: Codable {
     let weather: [Weather]
     let main: Main
     let wind: Wind
+    let name: String
     
     static func parseWeatherResponse(data: Data) -> WeatherResponse? {
         do{

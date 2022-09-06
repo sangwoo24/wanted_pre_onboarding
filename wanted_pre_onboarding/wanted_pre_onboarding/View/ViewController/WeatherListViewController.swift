@@ -10,37 +10,57 @@ import UIKit
 class WeatherListViewController: UIViewController {
 
     @IBOutlet weak var weatherListCollectionView: UICollectionView!
-    @IBOutlet weak var currentLocationSectionView: UIView!
     
-    let viewModel: WeatherListViewModel = WeatherListViewModel()
+    let networkService = NetworkService.shared
+    
+    var weatherList: [WeatherResponse] = []
+    
+    private let cityCodeList: [Int] = [
+        1842616,1841811,1842225,1842025,1835327,1835224,1841066,1838524,1835895,1835848,1836553,1835553,1835648,1833747,1843491,1845457,1846266,1845759,1845033,1845136]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("indicator on")
+        let group = DispatchGroup()
+        
+        for cityCode in cityCodeList {
+            group.enter()
+            print(cityCode)
+            networkService.getWeatherData(cityCode: cityCode) { response in
+                if let weatherResponse = response {
+                    self.weatherList.append(weatherResponse)
+                    group.leave()
+                }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            print("indicator off")
+            self.weatherListCollectionView.reloadData()
+        }
+    }
 }
 
 extension WeatherListViewController {
     func setView() {
-        
-        // current location section
-        currentLocationSectionView.layer.cornerRadius = 12
-        
-        // other location section
         weatherListCollectionView.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
         weatherListCollectionView.register(WeatherListCollectionViewCell.self, forCellWithReuseIdentifier: WeatherListCollectionViewCell.reuseIdentifier)
     }
 }
 
-
 extension WeatherListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return weatherList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherListCollectionViewCell.reuseIdentifier, for: indexPath) as? WeatherListCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.updateCell(weatherList[indexPath.item])
         return cell
     }
     
