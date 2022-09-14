@@ -21,16 +21,20 @@ enum MeasurementType {
     case pressure
     case windSpeed
     
-    func getTypeIconUrl() -> String {
+    func getTypeIconName() -> String {
         switch self {
-        case .feelingTemp, .minTemp, .maxTemp:
-            return ""
+        case .feelingTemp:
+            return "icon_feeling_temp"
+        case .minTemp:
+            return "icon_min_temp"
+        case .maxTemp:
+            return "icon_max_temp"
         case .humidity:
-            return ""
+            return "icon_humidity"
         case .pressure:
-            return ""
+            return "icon_pressure"
         case .windSpeed:
-            return ""
+            return "icon_wind_speed"
         }
     }
     
@@ -48,6 +52,7 @@ enum MeasurementType {
     }
     
     func getDetailInfo() -> String {
+        return ""
         switch self {
         case .feelingTemp:
             return "FELLING TEMP"

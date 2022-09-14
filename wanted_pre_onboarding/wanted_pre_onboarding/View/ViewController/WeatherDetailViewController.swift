@@ -30,7 +30,7 @@ class WeatherDetailViewController: UIViewController {
     func setView() {
         weatherDetailCollectionView.register(WeatherDetailCollectionViewCell.self, forCellWithReuseIdentifier: WeatherDetailCollectionViewCell.reuseIdentifier)
         
-        icon.setNetworkImage(weatherDetail.iconUrl)
+        icon.setNetworkImage("https://openweathermap.org/img/wn/\(weatherDetail.iconUrl)@2x.png")
         descriptionLabel.text = weatherDetail.description
         locationLabel.text = weatherDetail.location
         tempLabel.text = "\(Int(round(weatherDetail.currentTemp)))°C"
@@ -39,7 +39,7 @@ class WeatherDetailViewController: UIViewController {
 
 extension WeatherDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return weatherDetail.mesurements.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,16 +52,16 @@ extension WeatherDetailViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-//        let width: CGFloat = collectionView.frame.width / 4 - 100
+        let width: CGFloat = (collectionView.frame.width - 80) / 4
         
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: width, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 50
+        return 20
     }
-        
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
