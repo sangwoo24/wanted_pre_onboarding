@@ -64,6 +64,13 @@ extension WeatherListViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? WeatherDetailViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.weatherDetail = WeatherDetail.fromWeatherResponse(weatherList[indexPath.item])
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width: CGFloat = collectionView.frame.width / 2 - 16
