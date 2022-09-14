@@ -15,8 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_snowman" translatesAutoresizingMaskIntoConstraints="NO" id="pti-hj-tSB">
+                                <rect key="frame" x="157" y="383" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0Yo-dD-v1L"/>
+                                    <constraint firstAttribute="height" constant="100" id="MKi-cy-rlU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wanted Pre Onboarding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eT-eA-x6H">
+                                <rect key="frame" x="77" y="491" width="260" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8eT-eA-x6H" firstAttribute="centerX" secondItem="pti-hj-tSB" secondAttribute="centerX" id="B5s-Ai-FUv"/>
+                            <constraint firstItem="8eT-eA-x6H" firstAttribute="top" secondItem="pti-hj-tSB" secondAttribute="bottom" constant="8" symbolic="YES" id="LS0-nt-KbZ"/>
+                            <constraint firstItem="pti-hj-tSB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="d51-Wn-G9u"/>
+                            <constraint firstItem="pti-hj-tSB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="y9B-3l-Aa6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_snowman" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

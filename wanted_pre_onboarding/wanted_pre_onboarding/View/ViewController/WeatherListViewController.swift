@@ -66,7 +66,7 @@ extension WeatherListViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? WeatherDetailViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
+
         vc.weatherDetail = WeatherDetail.fromWeatherResponse(weatherList[indexPath.item])
         self.present(vc, animated: true, completion: nil)
     }
