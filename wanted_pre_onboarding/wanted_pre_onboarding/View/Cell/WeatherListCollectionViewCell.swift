@@ -42,6 +42,14 @@ class WeatherListCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let humidityIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "icon_humidity")
+        
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -52,15 +60,21 @@ class WeatherListCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(humidityLabel)
         contentView.addSubview(icon)
         contentView.addSubview(locationLabel)
+        contentView.addSubview(humidityIcon)
         
         NSLayoutConstraint.activate([
             tempLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             tempLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            humidityLabel.topAnchor.constraint(equalTo: tempLabel.bottomAnchor, constant: 4),
-            humidityLabel.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),
+            humidityIcon.topAnchor.constraint(equalTo: tempLabel.bottomAnchor, constant: 4),
+            humidityIcon.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),
+            humidityIcon.widthAnchor.constraint(equalToConstant: 14),
+            humidityIcon.heightAnchor.constraint(equalToConstant: 14),
             
-            icon.topAnchor.constraint(equalTo: tempLabel.topAnchor),
+            humidityLabel.leadingAnchor.constraint(equalTo: humidityIcon.leadingAnchor, constant: 20),
+            humidityLabel.topAnchor.constraint(equalTo: humidityIcon.topAnchor),
+            
+            icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             icon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             icon.widthAnchor.constraint(equalToConstant: 40),
             icon.heightAnchor.constraint(equalToConstant: 40),
