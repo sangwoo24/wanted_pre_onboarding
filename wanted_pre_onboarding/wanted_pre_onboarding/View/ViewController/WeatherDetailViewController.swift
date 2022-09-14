@@ -27,8 +27,8 @@ class WeatherDetailViewController: UIViewController {
     @IBAction func pop(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
+        
+    override func viewWillDisappear(_ animated: Bool) {
         if let completionHandler = self.viewCompletionClosure {
             completionHandler()
         }
@@ -40,6 +40,7 @@ class WeatherDetailViewController: UIViewController {
         icon.setNetworkImage("https://openweathermap.org/img/wn/\(weatherDetail.iconUrl)@2x.png")
         descriptionLabel.text = weatherDetail.description
         locationLabel.text = weatherDetail.location
+        locationLabel.textColor = UIColor(red: 133/255, green: 135/255, blue: 137/255, alpha: 1)
         tempLabel.text = "\(Int(round(weatherDetail.currentTemp)))°C"
     }
 }

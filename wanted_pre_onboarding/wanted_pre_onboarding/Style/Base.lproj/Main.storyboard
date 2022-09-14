@@ -67,6 +67,7 @@
                     <connections>
                         <outlet property="WeatherListCollectionView" destination="YSk-80-sWc" id="NXe-Y6-5Ng"/>
                         <outlet property="indicator" destination="GyE-dH-eqx" id="8g2-I4-sZe"/>
+                        <outlet property="weatherListCollectionView" destination="YSk-80-sWc" id="2aH-xi-gN8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,32 +83,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nde-ug-RnR">
-                                <rect key="frame" x="157" y="124" width="100" height="100"/>
+                                <rect key="frame" x="157" y="144" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="4lF-fc-fqO"/>
                                     <constraint firstAttribute="height" constant="100" id="aPD-Y1-q0v"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlL-da-SN6">
-                                <rect key="frame" x="152" y="224" width="110.5" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <rect key="frame" x="152" y="244" width="110.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suwon-si" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUo-hO-Rxx">
-                                <rect key="frame" x="164" y="274" width="86.5" height="24"/>
+                                <rect key="frame" x="164" y="294" width="86.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG8-Mf-1PH">
-                                <rect key="frame" x="137" y="338" width="140" height="84"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="70"/>
+                                <rect key="frame" x="138" y="338" width="138" height="84"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vxy-cG-o4t">
-                                <rect key="frame" x="0.0" y="482" width="414" height="380"/>
+                                <rect key="frame" x="0.0" y="502" width="414" height="360"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C7T-Ye-pxH">
                                     <size key="itemSize" width="128" height="128"/>
@@ -147,14 +148,14 @@
                             <constraint firstItem="HUo-hO-Rxx" firstAttribute="top" secondItem="hlL-da-SN6" secondAttribute="bottom" constant="14" id="6eW-Yh-hGP"/>
                             <constraint firstItem="YQ1-wp-X6l" firstAttribute="bottom" secondItem="Vxy-cG-o4t" secondAttribute="bottom" id="7uo-Ip-LrV"/>
                             <constraint firstItem="jNZ-zh-WuJ" firstAttribute="top" secondItem="YQ1-wp-X6l" secondAttribute="top" constant="20" id="9I0-ZA-oGi"/>
-                            <constraint firstItem="Nde-ug-RnR" firstAttribute="top" secondItem="YQ1-wp-X6l" secondAttribute="top" constant="80" id="Dyd-Cb-q3r"/>
+                            <constraint firstItem="Nde-ug-RnR" firstAttribute="top" secondItem="YQ1-wp-X6l" secondAttribute="top" constant="100" id="Dyd-Cb-q3r"/>
                             <constraint firstItem="Vxy-cG-o4t" firstAttribute="leading" secondItem="YQ1-wp-X6l" secondAttribute="leading" id="Fq7-Z5-co1"/>
                             <constraint firstItem="jNZ-zh-WuJ" firstAttribute="leading" secondItem="YQ1-wp-X6l" secondAttribute="leading" constant="20" id="IyV-Ml-HbX"/>
                             <constraint firstItem="hlL-da-SN6" firstAttribute="centerX" secondItem="Nde-ug-RnR" secondAttribute="centerX" id="Kin-NH-5Je"/>
                             <constraint firstItem="YQ1-wp-X6l" firstAttribute="trailing" secondItem="Vxy-cG-o4t" secondAttribute="trailing" id="NYE-cA-dIY"/>
                             <constraint firstItem="hlL-da-SN6" firstAttribute="top" secondItem="Nde-ug-RnR" secondAttribute="bottom" id="Pel-0c-VZD"/>
-                            <constraint firstItem="Vxy-cG-o4t" firstAttribute="top" secondItem="DG8-Mf-1PH" secondAttribute="bottom" constant="60" id="RoF-7Q-6yY"/>
-                            <constraint firstItem="DG8-Mf-1PH" firstAttribute="top" secondItem="HUo-hO-Rxx" secondAttribute="bottom" constant="40" id="cnR-uq-gOw"/>
+                            <constraint firstItem="Vxy-cG-o4t" firstAttribute="top" secondItem="DG8-Mf-1PH" secondAttribute="bottom" constant="80" id="RoF-7Q-6yY"/>
+                            <constraint firstItem="DG8-Mf-1PH" firstAttribute="top" secondItem="HUo-hO-Rxx" secondAttribute="bottom" constant="20" id="cnR-uq-gOw"/>
                             <constraint firstItem="HUo-hO-Rxx" firstAttribute="centerX" secondItem="hlL-da-SN6" secondAttribute="centerX" id="eNU-0n-RrY"/>
                             <constraint firstItem="Nde-ug-RnR" firstAttribute="centerX" secondItem="YQ1-wp-X6l" secondAttribute="centerX" id="rFg-ZH-QGe"/>
                         </constraints>
