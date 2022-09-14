@@ -47,6 +47,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="BcW-xc-XsG"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GyE-dH-eqx">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,12 +58,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSk-80-sWc" secondAttribute="trailing" constant="26" id="4S8-mL-CiT"/>
                             <constraint firstItem="e37-fz-UdD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Mbx-Da-o2m"/>
                             <constraint firstItem="e37-fz-UdD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Tam-yX-tuy"/>
+                            <constraint firstItem="GyE-dH-eqx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="VQm-wM-qYQ"/>
                             <constraint firstItem="YSk-80-sWc" firstAttribute="top" secondItem="e37-fz-UdD" secondAttribute="bottom" constant="30" id="Vh7-OD-NJO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YSk-80-sWc" secondAttribute="bottom" id="fOy-oQ-zoN"/>
+                            <constraint firstItem="GyE-dH-eqx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gbJ-nZ-rzZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="WeatherListCollectionView" destination="YSk-80-sWc" id="NXe-Y6-5Ng"/>
+                        <outlet property="indicator" destination="GyE-dH-eqx" id="8g2-I4-sZe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

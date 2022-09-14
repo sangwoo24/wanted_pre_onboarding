@@ -16,7 +16,7 @@ class NetworkService {
         // init
     }
     
-    func getWeatherData(cityCode: Int, lang: String = "kr", units: String = "metric", completionHandler: @escaping (WeatherResponse?) -> (Void)){
+    func getWeatherData(cityCode: Int, units: String = "metric", completionHandler: @escaping (WeatherResponse?) -> (Void)){
         
         let session = URLSession(configuration: .default)
         guard let requestURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?id=\(cityCode)&units=\(units)&appid=\(API_KEY_WEATHER)") else { return }

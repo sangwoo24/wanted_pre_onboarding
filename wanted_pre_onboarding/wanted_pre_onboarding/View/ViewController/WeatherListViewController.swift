@@ -10,6 +10,7 @@ import UIKit
 class WeatherListViewController: UIViewController {
 
     @IBOutlet weak var weatherListCollectionView: UICollectionView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     let networkService = NetworkService.shared
     
@@ -24,12 +25,15 @@ class WeatherListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("indicator on")
+        getWeatherList()
+    }
+    
+    func getWeatherList() {
+        self.indicator.startAnimating()
         let group = DispatchGroup()
         
         for cityCode in cityCodeList {
             group.enter()
-            print(cityCode)
             networkService.getWeatherData(cityCode: cityCode) { response in
                 if let weatherResponse = response {
                     self.weatherList.append(weatherResponse)
@@ -39,7 +43,7 @@ class WeatherListViewController: UIViewController {
         }
         
         group.notify(queue: .main) {
-            print("indicator off")
+            self.indicator.stopAnimating()
             self.weatherListCollectionView.reloadData()
         }
     }
@@ -49,6 +53,9 @@ extension WeatherListViewController {
     func setView() {
         weatherListCollectionView.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
         weatherListCollectionView.register(WeatherListCollectionViewCell.self, forCellWithReuseIdentifier: WeatherListCollectionViewCell.reuseIdentifier)
+        
+        indicator.hidesWhenStopped = true
+        view.bringSubviewToFront(indicator)
     }
 }
 
@@ -68,6 +75,10 @@ extension WeatherListViewController: UICollectionViewDataSource, UICollectionVie
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? WeatherDetailViewController else { return }
 
         vc.weatherDetail = WeatherDetail.fromWeatherResponse(weatherList[indexPath.item])
+        vc.viewCompletionClosure = {
+            // reload
+            self.getWeatherList()
+        }
         self.present(vc, animated: true, completion: nil)
     }
     

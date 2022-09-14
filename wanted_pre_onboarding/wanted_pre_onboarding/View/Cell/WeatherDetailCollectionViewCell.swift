@@ -23,13 +23,6 @@ class WeatherDetailCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let detailInfoLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,7 +30,6 @@ class WeatherDetailCollectionViewCell: UICollectionViewCell {
 
         addSubview(icon)
         addSubview(valueLabel)
-        addSubview(detailInfoLabel)
         
         NSLayoutConstraint.activate([
             icon.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -47,9 +39,6 @@ class WeatherDetailCollectionViewCell: UICollectionViewCell {
             
             valueLabel.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 10),
             valueLabel.centerXAnchor.constraint(equalTo: icon.centerXAnchor),
-            
-            detailInfoLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 10),
-            detailInfoLabel.centerXAnchor.constraint(equalTo: valueLabel.centerXAnchor),
         ])
     }
     
@@ -60,6 +49,5 @@ class WeatherDetailCollectionViewCell: UICollectionViewCell {
     func updateCell(_ measurement: Measurement) {
         icon.image = UIImage(named: measurement.type.getTypeIconName())
         valueLabel.text = measurement.type.getValueString(measurement.value)
-        detailInfoLabel.text = measurement.type.getDetailInfo()
     }
 }

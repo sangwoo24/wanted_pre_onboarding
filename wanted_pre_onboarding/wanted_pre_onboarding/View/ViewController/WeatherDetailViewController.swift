@@ -17,6 +17,7 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var weatherDetailCollectionView: UICollectionView!
     
     var weatherDetail: WeatherDetail!
+    var viewCompletionClosure: (() ->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class WeatherDetailViewController: UIViewController {
     
     @IBAction func pop(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if let completionHandler = self.viewCompletionClosure {
+            completionHandler()
+        }
     }
     
     func setView() {
@@ -43,7 +50,6 @@ extension WeatherDetailViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // enum type 으로 넘김
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherDetailCollectionViewCell.reuseIdentifier, for: indexPath) as? WeatherDetailCollectionViewCell else { return UICollectionViewCell() }
         cell.updateCell(weatherDetail.mesurements[indexPath.item])
         

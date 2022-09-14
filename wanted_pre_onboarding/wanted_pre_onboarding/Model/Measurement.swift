@@ -47,25 +47,7 @@ enum MeasurementType {
         case .pressure:
             return "\(value)hPa"
         case .windSpeed:
-            return "\(value) km/h"
-        }
-    }
-    
-    func getDetailInfo() -> String {
-        return ""
-        switch self {
-        case .feelingTemp:
-            return "FELLING TEMP"
-        case .minTemp:
-            return "MIN TEMP"
-        case .maxTemp:
-            return "MAX TEMP"
-        case .humidity:
-            return "HUMIDITY"
-        case .pressure:
-            return "PRESSURE"
-        case .windSpeed:
-            return "SPEED"
+            return "\(value) m/s"
         }
     }
 }
